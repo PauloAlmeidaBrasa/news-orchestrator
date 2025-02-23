@@ -1,3 +1,6 @@
 [submodule "docker/admin-back-news-service"]
 	path = docker/admin-back-news-service
 	url = https://github.com/PauloAlmeidaBrasa/admin-back-news.git
+[submodule "admin-front-news"]
+	path = admin-front-news
+	url = https://github.com/PauloAlmeidaBrasa/admin-front-news.git
