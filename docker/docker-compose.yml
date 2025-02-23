@@ -1,8 +1,8 @@
 version: '3.8'
 services:
-  admin-back-service:
+  admin-back-news-service:
     build:
-      context: ../admin-back-service
+      context: ./admin-back-news-service
       dockerfile: docker/admin-service/Dockerfile
     ports:
       - "8000:8000"
@@ -14,9 +14,9 @@ services:
     depends_on:
       - db
 
-  admin-front-service:
+  admin-front-news-service:
     build:
-      context: ../admin-front-service
+      context: ./admin-front-news-service
       dockerfile: docker/front-admin/Dockerfile
     ports:
       - "3000:3000"
