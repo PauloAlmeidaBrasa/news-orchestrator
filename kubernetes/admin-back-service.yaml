@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-back-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: admin-back-service
+  template:
+    metadata:
+      labels:
+        app: admin-back-service
+    spec:
+      containers:
+        - name: admin-back-service
+          image: your-docker-registry/admin-back-service:latest
+          ports:
+            - containerPort: 8000

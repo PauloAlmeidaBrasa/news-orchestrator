@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  admin-service:
+  admin-back-service:
     build:
       context: ../admin-back-service
       dockerfile: docker/admin-service/Dockerfile
@@ -14,7 +14,7 @@ services:
     depends_on:
       - db
 
-  front-admin:
+  admin-front-service:
     build:
       context: ../admin-front-service
       dockerfile: docker/front-admin/Dockerfile
