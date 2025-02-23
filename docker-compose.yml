@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  admin-back-news-service:
+    build:
+      context: ./docker/admin-back-news-service
+      dockerfile: docker/admin-service/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: db
+      DB_DATABASE: news_db
+      DB_USERNAME: root
+      DB_PASSWORD: password
+    depends_on:
+      - db
+
+  admin-front-news-service:
+    build:
+      context: ./docker/admin-front-news-service
+      dockerfile: docker/front-admin/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL: http://admin-service:8000
+
+  #news-app:
+  #  build:
+ #     context: ../news-app
+  #    dockerfile: docker/news-app/Dockerfile
+  #  ports:
+  #    - "8080:8080"
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: news_db
+    ports:
+      - "3306:3306"
