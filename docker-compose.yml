@@ -3,7 +3,7 @@ services:
   admin-back-news-service:
     build:
       context: ./docker/admin-back-news-service
-      dockerfile: docker/admin-service/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     environment:
@@ -11,6 +11,10 @@ services:
       DB_DATABASE: news_db
       DB_USERNAME: root
       DB_PASSWORD: password
+    volumes:
+      - ./admin-back-news-service:/var/www/html
+    networks:
+      - backend-network
     depends_on:
       - db
 
@@ -31,9 +35,23 @@ services:
   #    - "8080:8080"
 
   db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: news_db
-    ports:
-      - "3306:3306"
+    image: mysql:8.0
+    container_name: admin-backend-db
+    restart: unless-stopped
+  #  environment:
+  #    MYSQL_ROOT_PASSWORD: root
+  #    MYSQL_DATABASE: laravel
+  #    MYSQL_USER: laravel
+  #    MYSQL_PASSWORD: secret
+  
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend-network
+
+volumes:
+  db-data:
+
+networks:
+  backend-network:
+    driver: bridge
