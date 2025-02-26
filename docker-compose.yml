@@ -2,7 +2,7 @@ version: '3.8'
 services:
   admin-back-news-service:
     build:
-      context: ./docker/admin-back-news-service
+      context: ./docker/admin-back-news-service/
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -12,7 +12,7 @@ services:
       DB_USERNAME: root
       DB_PASSWORD: password
     volumes:
-      - ./admin-back-news-service:/var/www/html
+      - ./docker/admin-back-news-service:/app
     networks:
       - backend-network
     depends_on:

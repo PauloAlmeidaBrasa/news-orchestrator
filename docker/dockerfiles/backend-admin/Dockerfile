@@ -2,7 +2,7 @@
 FROM php:8.2-cli
 
 # Set working directory
-WORKDIR /var/www/html
+WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -33,11 +33,12 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-x
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+#COPY composer.json ../../docker/admin-back-news-service
 # Copy existing application directory contents
-COPY . .
+COPY . .  
 
 # Install Laravel dependencies
-RUN composer install --optimize-autoloader --no-dev
+RUN composer install --ignore-platform-reqs
 
 # Generate Laravel key
 RUN php artisan key:generate
