@@ -12,20 +12,20 @@ services:
       DB_USERNAME: root
       DB_PASSWORD: password
     volumes:
-      - ./docker/admin-back-news-service:/app
+      - ./docker/admin-back-news-service:/var/www/html
     networks:
       - backend-network
     depends_on:
       - db
 
-  admin-front-news-service:
-    build:
-      context: ./docker/admin-front-news-service
-      dockerfile: docker/front-admin/Dockerfile
-    ports:
-      - "3000:3000"
-    environment:
-      API_URL: http://admin-service:8000
+  # admin-front-news-service:
+  #   build:
+  #     context: ./docker/admin-front-news-service
+  #     dockerfile: docker/front-admin/Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     API_URL: http://admin-service:8000
 
   #news-app:
   #  build:
@@ -38,7 +38,8 @@ services:
     image: mysql:8.0
     container_name: admin-backend-db
     restart: unless-stopped
-  #  environment:
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
   #    MYSQL_ROOT_PASSWORD: root
   #    MYSQL_DATABASE: laravel
   #    MYSQL_USER: laravel
