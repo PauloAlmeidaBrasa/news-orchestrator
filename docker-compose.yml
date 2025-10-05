@@ -13,6 +13,7 @@ services:
       DB_PASSWORD: password
     volumes:
       - ./admin-back-news-service:/var/www/html
+      - /var/www/html/vendor  
     networks:
       - backend-network
     depends_on:
