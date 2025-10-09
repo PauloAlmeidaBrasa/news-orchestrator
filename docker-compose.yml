@@ -6,11 +6,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    environment:
-      DB_HOST: db
-      DB_DATABASE: news_db
-      DB_USERNAME: root
-      DB_PASSWORD: password
     volumes:
       - ./admin-back-news-service:/var/www/html
       - /var/www/html/vendor  
@@ -40,11 +35,11 @@ services:
     container_name: admin-backend-db
     restart: unless-stopped
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: true
-  #    MYSQL_ROOT_PASSWORD: root
-  #    MYSQL_DATABASE: laravel
-  #    MYSQL_USER: laravel
-  #    MYSQL_PASSWORD: secret
+      # MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: news_back_db
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: 123
   
     volumes:
       - db-data:/var/lib/mysql
