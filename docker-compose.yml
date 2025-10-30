@@ -19,6 +19,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+    - ./admin-front-news-service/src:/app/src
+    - ./admin-front-news-service/public:/app/public
+  # stdin_open: true
+  # tty: true
     # environment:
       # API_URL: http://admin-service:8000
 
