@@ -4,10 +4,6 @@ services:
     build:
       context: ./admin-back-news-service/
       dockerfile: Dockerfile
-    # ports:
-    #   - "8000:80"
-    # volumes:
-    #   - ./admin-back-news-service:/var/www/html
     networks:
       - backend-network
     depends_on:
@@ -17,17 +13,6 @@ services:
     build:
       context: ./admin-front-news-service
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    env_file:
-      - ./admin-front-news-service/.env
-    volumes:
-    - ./admin-front-news-service/src:/app/src
-    - ./admin-front-news-service/public:/app/public
-  # stdin_open: true
-  # tty: true
-    # environment:
-      # API_URL: http://admin-service:8000
 
   #news-app:
   #  build:
