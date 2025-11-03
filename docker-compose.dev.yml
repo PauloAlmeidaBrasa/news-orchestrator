@@ -1,0 +1,8 @@
+services:
+  admin-back-news-service:
+    ports:
+      - "8000:80"
+    volumes:
+      - ./admin-back-news-service:/var/www/html
+    env_file:
+      - ./admin-back-news-service/.env.dev
