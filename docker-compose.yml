@@ -17,7 +17,7 @@ services:
   admin-node-news-service:
     container_name: node-backend
     build:
-      context: ../node-admin-news-service/
+      context: ../admin-news-back-node/
       dockerfile: Dockerfile
     networks:
       - backend-network
