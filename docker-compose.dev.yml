@@ -1,7 +1,7 @@
 services:
   admin-back-news-service:
     ports:
-      - "8000:80"
+      - "8000:8000"
     volumes:
       - ./admin-back-news-service:/var/www/html
     env_file:
@@ -10,11 +10,11 @@ services:
 
   admin-node-news-service:
     ports:
-      - "8000:80"
+      - "8000:8000"
     volumes:
-      - ../node-admin-news-service:/var/www/html
+      - ../admin-news-back-node:/app
     env_file:
-      - ../node-admin-news-service/.env.dev
+      - ../admin-news-back-node/.env.dev
     command: npm run dev
 
 
