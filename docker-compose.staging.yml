@@ -15,7 +15,7 @@ services:
       - ./admin-news-back-node:/app
     env_file:
       - ./admin-news-back-node/.env.dev
-    command: npm run dev
+    command: npm run staging
 
 
   admin-front-news-service:

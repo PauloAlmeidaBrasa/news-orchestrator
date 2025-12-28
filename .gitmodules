@@ -4,3 +4,6 @@
 [submodule "admin-front-news-service"]
 	path = admin-front-news-service
 	url = https://github.com/PauloAlmeidaBrasa/admin-front-news-service.git
+[submodule "admin-news-back-node"]
+	path = admin-news-back-node
+	url = https://github.com/PauloAlmeidaBrasa/admin-news-back-node.git
