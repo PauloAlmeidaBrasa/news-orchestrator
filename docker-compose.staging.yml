@@ -16,7 +16,7 @@ services:
       - /app/node_modules
       # - ./admin-news-back-node:/app
     env_file:
-      - ./admin-news-back-node/.env.dev
+      - ./admin-news-back-node/.env.staging
     command: npm run staging
 
 
