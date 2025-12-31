@@ -9,15 +9,16 @@ services:
 
 
   admin-node-news-service:
+    image: paulodev183883/admin-news-back-node:staging
     ports:
       - "8000:8000"
-    volumes:
-      - ./admin-news-back-node:/app
-      - /app/node_modules
+    # volumes:
+    #   - ./admin-news-back-node:/app
+    #   - /app/node_modules
       # - ./admin-news-back-node:/app
     env_file:
       - ./admin-news-back-node/.env.staging
-    command: npm run staging
+    # command: npm run staging
     deploy:
       resources:
         limits:
