@@ -12,8 +12,9 @@ services:
     image: paulodev183883/admin-news-back-node:staging
     ports:
       - "8000:8000"
-    NODE_ENV: production
-    APP_ENV: staging
+    environment:
+      NODE_ENV: production
+      APP_ENV: staging
     env_file:
       - .env.staging
     mem_limit: 512m
