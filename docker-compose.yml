@@ -15,7 +15,6 @@ services:
       dockerfile: Dockerfile
 
   admin-node-news-service:
-    image: paulodev183883/admin-news-back-node
     networks:
       - backend-network
     working_dir: /app

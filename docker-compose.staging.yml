@@ -12,14 +12,12 @@ services:
     image: paulodev183883/admin-news-back-node:staging
     ports:
       - "8000:8000"
-    NODE_ENV: staging
+    NODE_ENV: production
+    APP_ENV: staging
     env_file:
       - .env.staging
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-          cpus: "0.50"
+    mem_limit: 512m
+    cpus: "0.50"
 
 
   admin-front-news-service:
