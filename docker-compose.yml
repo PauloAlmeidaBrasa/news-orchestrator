@@ -15,26 +15,12 @@ services:
       dockerfile: Dockerfile
 
   admin-node-news-service:
-    image: paulodev183883/admin-news-back-node:staging
-    # build:
-    #   context: ./admin-news-back-node/
-    #   dockerfile: Dockerfile
+    image: paulodev183883/admin-news-back-node
     networks:
       - backend-network
     working_dir: /app
     depends_on:
       - db
-
-  # admin-node-news-service:
-  #   container_name: node-backend
-  #   build:
-  #     context: ./admin-news-back-node/
-  #     dockerfile: Dockerfile
-  #   networks:
-  #     - backend-network
-  #   working_dir: /app
-  #   depends_on:
-  #     - db
 
   #news-app:
   #  build:

@@ -9,6 +9,9 @@ services:
 
 
   admin-node-news-service:
+    build:
+      context: ./admin-news-back-node/
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     volumes:
