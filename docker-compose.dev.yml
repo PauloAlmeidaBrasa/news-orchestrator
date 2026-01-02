@@ -17,6 +17,7 @@ services:
     volumes:
       - ./admin-news-back-node:/app
       - /app/node_modules
+    NODE_ENV: dev
     env_file:
       - ./admin-news-back-node/.env.dev
     command: npm run dev

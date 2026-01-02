@@ -12,6 +12,7 @@ services:
     image: paulodev183883/admin-news-back-node:staging
     ports:
       - "8000:8000"
+    NODE_ENV: staging
     env_file:
       - .env.staging
     deploy:
