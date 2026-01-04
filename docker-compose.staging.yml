@@ -1,11 +1,11 @@
 services:
-  admin-back-news-service:
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./admin-back-news-service:/var/www/html
-    env_file:
-      - ./admin-back-news-service/.env.dev
+  # admin-back-news-service:
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./admin-back-news-service:/var/www/html
+  #   env_file:
+  #     - ./admin-back-news-service/.env.dev
 
 
   admin-node-news-service:
@@ -21,12 +21,12 @@ services:
     cpus: "0.50"
 
 
-  admin-front-news-service:
-    ports:
-      - "3000:3000"
-    env_file:
-      - ./admin-front-news-service/.env.dev
-    volumes:
-      - ./admin-front-news-service/src:/app/src
-      - ./admin-front-news-service/public:/app/public
+  # admin-front-news-service:
+  #   ports:
+  #     - "3000:3000"
+  #   env_file:
+  #     - ./admin-front-news-service/.env.dev
+  #   volumes:
+  #     - ./admin-front-news-service/src:/app/src
+  #     - ./admin-front-news-service/public:/app/public
   # stdin_open: true
