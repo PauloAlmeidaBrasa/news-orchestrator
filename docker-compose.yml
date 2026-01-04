@@ -1,18 +1,6 @@
 version: '3.8'
 services:
-  admin-back-news-service:
-    build:
-      context: ./admin-back-news-service/
-      dockerfile: Dockerfile
-    networks:
-      - backend-network
-    depends_on:
-      - db
 
-  admin-front-news-service:
-    build:
-      context: ./admin-front-news-service
-      dockerfile: Dockerfile
 
   admin-node-news-service:
     networks:
