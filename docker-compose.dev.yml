@@ -1,34 +1,35 @@
 services:
-  admin-back-news-service:
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./admin-back-news-service:/var/www/html
-    env_file:
-      - ./admin-back-news-service/.env.dev
+  # admin-back-news-service:
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./admin-back-news-service:/var/www/html
+  #   env_file:
+  #     - ./admin-back-news-service/.env.dev
 
 
   admin-node-news-service:
     build:
-      context: ./admin-news-back-node/
-      dockerfile: Dockerfile
+      context: ./admin-news-back-node
+      dockerfile: Dockerfile.dev
     ports:
       - "8000:8000"
     volumes:
       - ./admin-news-back-node:/app
       - /app/node_modules
-    NODE_ENV: dev
+    environment:
+      NODE_ENV: dev
     env_file:
       - ./admin-news-back-node/.env.dev
-    command: npm run dev
+    command: sh -c "npm install && npm run dev"
 
 
-  admin-front-news-service:
-    ports:
-      - "3000:3000"
-    env_file:
-      - ./admin-front-news-service/.env.dev
-    volumes:
-      - ./admin-front-news-service/src:/app/src
-      - ./admin-front-news-service/public:/app/public
+  # admin-front-news-service:
+  #   ports:
+  #     - "3000:3000"
+  #   env_file:
+  #     - ./admin-front-news-service/.env.dev
+  #   volumes:
+  #     - ./admin-front-news-service/src:/app/src
+  #     - ./admin-front-news-service/public:/app/public
   # stdin_open: true
