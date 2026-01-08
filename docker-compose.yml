@@ -3,7 +3,7 @@ services:
 
 
   admin-node-news-service:
-    image: paulodev183883/admin-news-back-node
+    image: admin-news-back-node-dev
     networks:
       - backend-network
     working_dir: /app
@@ -19,6 +19,11 @@ services:
 
   db:
     image: mysql:8.0
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     container_name: admin-backend-db
     restart: unless-stopped
     ports:
@@ -27,7 +32,7 @@ services:
       # MYSQL_ALLOW_EMPTY_PASSWORD: true
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: news_back_db
-      MYSQL_USER: laravel
+      MYSQL_USER: app_user
       MYSQL_PASSWORD: 123
   
     volumes:
