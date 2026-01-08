@@ -1,8 +1,14 @@
 services:
-  admin-back-news-service:
+  admin-node-news-service:
+    image: paulodev183883/admin-news-back-node:latest
     ports:
-      - "80:80"
-    volumes:
-      - ./admin-back-news-service:/var/www/html
+      - "8000:8000"
+    environment:
+      NODE_ENV: production
+      APP_ENV: production
+      DEBUG: false
     env_file:
-      - ./admin-back-news-service/.env.prod
+      - ./admin-news-back-node/.env.prod
+    mem_limit: 512m
+    cpus: "0.50"
+    restart: always
