@@ -1,4 +1,18 @@
 services:
+
+  db:
+    image: mysql:8.0
+    container_name: prod-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: news_back_prod_db
+      MYSQL_USER: prod_user
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - prod_db_data:/var/lib/mysql
+    networks:
+      - backend-network
   admin-node-news-service:
     image: paulodev183883/admin-news-back-node:latest
     ports:
@@ -12,3 +26,11 @@ services:
     mem_limit: 512m
     cpus: "0.50"
     restart: always
+
+
+volumes:
+  prod_db_data:
+
+networks:
+  backend-network:
+    driver: bridge
