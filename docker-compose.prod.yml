@@ -5,10 +5,12 @@ services:
     container_name: prod-mysql
     restart: always
     environment:
-      MYSQL_DATABASE: news_back_prod_db
-      MYSQL_USER: prod_user
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
     volumes:
       - prod_db_data:/var/lib/mysql
     networks:
@@ -25,7 +27,7 @@ services:
     #   - ./admin-news-back-node/.env.prod
     mem_limit: 512m
     cpus: "0.50"
-    # restart: always
+    restart: always
 
 
 volumes:
