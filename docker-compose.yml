@@ -10,12 +10,11 @@ services:
     depends_on:
       - db
 
-  #news-app:
-  #  build:
- #     context: ../news-app
-  #    dockerfile: docker/news-app/Dockerfile
-  #  ports:
-  #    - "8080:8080"
+  news-app:
+   build:
+      context: ./news-app
+      dockerfile: Dockerfile
+
 
   db:
     image: mysql:8.0

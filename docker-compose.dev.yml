@@ -33,3 +33,14 @@ services:
       - ./admin-front-news-service/src:/app/src
       - ./admin-front-news-service/public:/app/public
     stdin_open: true
+
+  news-app:
+    build:
+      context: ./news-app
+  env_file:
+    - ./news-app/.env.dev
+  volumes:
+    - ./news-app/src:/app/src
+    - ./news-app/public:/app/public
+  ports:
+    - "3001:3001"
