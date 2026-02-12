@@ -39,6 +39,12 @@ services:
       - db-data:/var/lib/mysql
     networks:
       - backend-network
+  
+  admin-front-news-service:
+    build:
+      context: ./admin-front-news-service
+      dockerfile: Dockerfile
+    image: admin-front-service/dev
 
 volumes:
   db-data:
