@@ -7,3 +7,6 @@
 [submodule "admin-news-back-node"]
 	path = admin-news-back-node
 	url = https://github.com/PauloAlmeidaBrasa/admin-news-back-node.git
+[submodule "news-app"]
+	path = news-app
+	url = https://github.com/PauloAlmeidaBrasa/news-app.git
