@@ -12,8 +12,14 @@ services:
 
   news-app:
    build:
-      context: ./news-app
-      dockerfile: Dockerfile
+    context: ./news-app
+    dockerfile: Dockerfile
+
+  api-news-app:
+   build:
+    context: ./api-news-app
+    dockerfile: Dockerfile
+
 
 
   db:

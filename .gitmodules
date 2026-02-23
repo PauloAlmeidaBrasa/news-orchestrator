@@ -10,3 +10,6 @@
 [submodule "news-app"]
 	path = news-app
 	url = https://github.com/PauloAlmeidaBrasa/news-app.git
+[submodule "api-news-app"]
+	path = api-news-app
+	url = https://github.com/PauloAlmeidaBrasa/api-news-app.git
