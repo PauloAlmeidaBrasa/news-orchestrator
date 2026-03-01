@@ -37,13 +37,16 @@ services:
   news-app:
     build:
       context: ./news-app
-    # env_file:
-    #   - ./news-app/.env.dev
+    env_file:
+      - ./news-app/.env.dev
     volumes:
+      - ./news-app/app:/app/app
       - ./news-app/src:/app/src
       - ./news-app/public:/app/public
     ports:
       - "3000:3000"
+    networks:
+      - backend-network
 
   api-news-app:
     build:
@@ -54,6 +57,8 @@ services:
     volumes:
       - ./api-news-app:/app
       - /app/node_modules
-    ports:
+    expose:
       - "5000:5000"
     command: sh -c "npm install && npm run dev"
+    networks:
+      - backend-network
